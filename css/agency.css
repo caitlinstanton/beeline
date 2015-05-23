@@ -9,6 +9,11 @@ body {
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.iframe {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .text-muted {
     color: #777;
 }
