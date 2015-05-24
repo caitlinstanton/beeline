@@ -25,7 +25,8 @@
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -37,6 +38,45 @@
     </head>
 
     <body id="page-top" class="index">
+	
+		<style>
+			form {
+				margin: auto;
+				alignment: center;
+				width: 500px;
+				height: 600px;
+				padding: 10px;
+				font-family: "Raleway", sans-serif;
+			}
+			input {
+				width: 450px;
+				display: block;
+				border: 1px solid #999;
+				height: 25px;
+			}
+			input#eventInfo {
+				width: 450px;
+				height: 120px;
+				color: blue;
+			}
+			input.button {
+				width:100px;
+				position:absolute;
+				right:20px;
+				bottom:20px;
+				background:#09C;
+				color:#fff;
+				height:30px;
+				border: 1p solid #999;
+			}
+			input.button:hover {
+				background:#fff;
+				color:#09C;
+			}
+			div#welcome {
+				font-family: "Raleway", sans-serif;
+			}
+		</style>
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -81,7 +121,7 @@
         <header>
             <div class="container">
                 <div class="intro-text">
-                    <div class="intro-lead-in">Welcome to beeline!</div>
+                    <div class="intro-lead-in" id="welcome">Welcome to beeline!</div>
                     <div class="intro-heading">We're here to help YOU</div>
                     <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
                 </div>
@@ -97,12 +137,28 @@
                    <h4><strong><font size ="6">Check out what's happening</font></strong>
                     </h4>
                    <div id='eventsDiv'></div>
-                            <input style="background-color:#ffffff;" type='text' id='eventName' placeholder='Name'>
-                            <input type='text' id='eventDate' placeholder='Date'>
-							<input type='text' id='eventLocation' placeholder='Location'>
-							<input type='text' id='eventInfo' placeholder='Description'>
-							<input type='text' id='eventSite' placeholder='Website'>
-							<input type="button" value="ENTER" data-theme="b" ID="eventsubmit">
+						<form>
+							<div>
+								<h1>Submit an Event!</h1>
+								<label>
+									<span>Event Name<input style="background-color:#ffffff;" type='text' id='eventName'>
+								</label>
+								<label>
+									<span>Date<input type='date' id='eventDate'>
+								</label>
+								<label>
+									<span>Location<input type='text' id='eventLocation'>
+								</label>
+								<label>
+									<span>Description<input type='text' id='eventInfo'>
+								</label>
+								<label>
+									<span>Website<input type='url' id='eventSite'>
+								</label>
+								<label>
+									<span><input type='button' value="ENTER" ID="eventsubmit" align="center">
+								</label>
+						</form>
                             <script>
                                 var myDataRef2 = new Firebase('https://beeline15.firebaseio.com/');
                                 document.getElementById('eventsubmit').onclick = function() {
@@ -110,7 +166,7 @@
                                         var edate = $('#eventDate').val();
 										var elocal = $('#eventLocation').val();
 										var einfo = $('#eventInfo').val();
-										var esite = $('#eventSite').val();
+										var esite = 'http://' + $('#eventSite').val();
                                         myDataRef2.push({name: ename, date: edate, location: elocal, info: einfo, site: esite});
 										$('#eventName').val('');
                                         $('#eventDate').val('');
@@ -141,12 +197,20 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     
-                   <h4><strong><font size ="6">Chat With Other Biz-Quick Users Online Now!</font></strong>
+                   <h4><strong><font size ="6">Chat With Other beeline Users Online Now!</font></strong>
                     </h4>
                    <div id='messagesDiv'></div>
-                            <input style="background-color:#ffffff;" type='text' id='nameInput' placeholder='Name'>
-                            <input type='text' id='messageInput' placeholder='Message'>
-							<input type="button" value="ENTER" data-theme="b" ID="submit">
+						<form>
+							<label>
+								<span><input style="background-color:#ffffff;" type='text' id='nameInput' placeholder='Name'>
+							</label>
+							<label>
+								<span><input type='text' id='messageInput' placeholder='Message'>
+							</label>
+							<label>
+								<span><input type="button" value="ENTER" data-theme="b" ID="submit">
+							</label>
+						</form>
                             <script>
                                 var myDataRef = new Firebase('https://codeday15.firebaseio.com/');
                                 document.getElementById('submit').onclick = function() {
