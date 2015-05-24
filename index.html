@@ -37,7 +37,6 @@
 		@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 body{
- background:url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/noisy_net.png') repeat;
   font-family: "Open Sans",  Impact;
 }
 .area{
@@ -47,7 +46,7 @@ body{
   letter-spacing: -7px;
   font-weight:700;
   text-transform:uppercase;
-  animation:stroke-offset .75s infinite linear;
+  animation:blur 2s ease-out 2x;
   text-shadow:0px 0px 5px #fff,
       0px 0px 7px #fff;
 }
@@ -73,9 +72,6 @@ body{
       0px -10px 100px #7B96B8,
       0px -10px 100px #7B96B8;}
 }
-
-
-
 
 	</style>
 
@@ -147,6 +143,9 @@ body{
                         <li>
                             <a class="page-scroll" href="#submit">Submit</a>
                         </li>
+                        <li>
+                            <a class="page-scroll" href="#directions">Directions</a>
+                        </li>
 						<li>
                             <a class="page-scroll" href="#portfolio">Chat</a>
                         </li>
@@ -162,9 +161,9 @@ body{
             <div class="container">
                 <div class="intro-text">
                     <div class="intro-lead-in" id="welcome">Welcome to</div>
-                    <div class="area">
-			 BEELINE
-		</div>
+                  <div class="area">
+BEELINE
+</div>
                     <div class="intro-heading">Let's find an event for YOU</div>
                     <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
                 </div>
@@ -208,11 +207,11 @@ body{
 						</form>
             
                             </section>
-                            <section >
+                            <section id="directions" style="margin-top:-300px;">
             <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    
+                
                    <h4><strong><font size ="6">Find Directions to the Nearest Event</font></strong></h4><br><br>
                     <iframe src="maps.html" seamless height=500px width=100%></iframe>
         </div></div></section>
@@ -281,7 +280,7 @@ body{
 								<span><input type='text' id='messageInput' placeholder='Message'>
 							</label>
 							<label>
-								<span><input type="button" value="ENTER" style="margin-top:20px; height:40px; width: 150px; border-radius:5px; font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px;" data-theme="b" ID="submit">
+								<span><input type='button' value='ENTER' style="margin-top:20px; height:40px; width: 150px; border-radius:5px; font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px;" data-theme="b" ID="submit">
 							</label>
 						</form>
                             <script>
