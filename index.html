@@ -214,10 +214,11 @@ BEELINE
                 
                    <h4><strong><font size ="6">Find Directions to the Nearest Event</font></strong></h4><br><br>
                     <iframe src="maps.html" seamless height=500px width=100%></iframe>
-        </div></div></section>
+				</div>
+			</div></section>
                                     <a href="#portfolio" class="page-scroll btn btn-xl" style="margin-top:-400px;">Chat about this</a>
                                     </div>
-                                    <ul id="eventList">
+                                    <div id="eventList">
                             <script>
                                 var myDataRef2 = new Firebase('https://beeline15.firebaseio.com/');
                                 document.getElementById('eventsubmit').onclick = function() {
@@ -226,7 +227,7 @@ BEELINE
 										var elocal = $('#eventLocation').val();
 										var einfo = $('#eventInfo').val();
 										var esite = 'http://' + $('#eventSite').val();
-                                        myDataRef2.push({name: ename, date: edate, location: elocal, info: einfo, site: esite});
+                                        myDataRef2.push({name2: ename, date: edate, location: elocal, info: einfo, site: esite});
 										$('#eventName').val('');
                                         $('#eventDate').val('');
 										$('#eventLocation').val('');
@@ -236,26 +237,18 @@ BEELINE
 
                                 myDataRef2.on('child_added', function(snapshot) {
                                     var events = snapshot.val();
-                                    displayChatMessage2(events.name, events.date, events.location, events.info, events.site);
+                                    displayChatMessage2(events.name2, events.date, events.location, events.info, events.site);
                                 });
-                                function displayChatMessage2(name, date, location, info, site) {
+                                function displayChatMessage2(name2, date, location, info, site) {
 									$('<div/>').text(date).prepend($('<em/>').text(name+': ')).appendTo($('#eventsDiv'));
 									$('<div/>').text(info).appendTo($('#eventsDiv'));
 									$('<div/>').text(site).appendTo($('#eventsDiv'));
 									$('<div/>').text("---------").appendTo($('#eventsDiv'));
                                     $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;            
                                 };
-                                $(function(){
-                                    $('#eventsList li a').each(function(){
-                                    $(this).click(function(){
-                                    $(this).siblings('#descrip li div').slideToggle(300); 
-                                    
-                                    });        
-                                    });                
-
-                                });
+                             
                             </script>  
-                            </ul>
+                            </div>
 					</div>
                                     
 				</div>
@@ -280,12 +273,12 @@ BEELINE
 								<span><input type='text' id='messageInput' placeholder='Message'>
 							</label>
 							<label>
-								<span><input type='button' value='ENTER' style="margin-top:20px; height:40px; width: 150px; border-radius:5px; font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px;" data-theme="b" ID="submit">
+								<span><input type='button' value='ENTER' style="margin-top:20px; height:40px; width: 150px; border-radius:5px; font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px;" data-theme="b" ID="messagesubmit">
 							</label>
 						</form>
                             <script>
                                 var myDataRef = new Firebase('https://codeday15.firebaseio.com/');
-                                document.getElementById('submit').onclick = function() {
+                                document.getElementById("messagesubmit").onclick = function() {
                                         var name = $('#nameInput').val();
                                         var text = $('#messageInput').val();
                                         myDataRef.push({name: name, text: text});
