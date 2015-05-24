@@ -100,6 +100,9 @@
                         <li>
                             <a class="page-scroll" href="#services">Events</a>
                         </li>
+                        <li>
+                            <a class="page-scroll" href="#submit">Submit</a>
+                        </li>
 						<li>
                             <a class="page-scroll" href="#contact">Chat</a>
                         </li>
@@ -130,9 +133,11 @@
                    <h4><strong><font size ="6">Check out what's happening</font></strong>
                     </h4>
                    <div id='eventsDiv'></div>
+                        <div style="background-image: url('honeycomb2.jpg');opacity:0.8;color:black; margin-left:-300px; margin-right:-300px; margin-bottom: -175px; margin-top:50px;">
+                        <section id ="submit">
 						<form>
 							<div>
-								<h1>Submit an Event!</h1>
+								<h1>Submit an Event</h1>
 								<label>
 									<span>Event Name<input style="background-color:#ffffff;" type='text' id='eventName'>
 								</label>
@@ -152,6 +157,8 @@
 									<span><input type='button' value="ENTER" ID="eventsubmit" align="center">
 								</label>
 						</form>
+                            </section>
+                                    </div>
                             <script>
                                 var myDataRef2 = new Firebase('https://beeline15.firebaseio.com/');
                                 document.getElementById('eventsubmit').onclick = function() {
@@ -176,21 +183,19 @@
                                     $('<div/>').text(date).prepend($('<em/>').text(name+': ')).appendTo($('#eventsDiv'));
                                     $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;
                                 };
-                            </script>     
-   
+                            </script>  
 					</div>
 				</div>
 			</div>
-        </section>
-
-        
+        </section> 
         <footer>
     <section id="contact">
+        </section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     
-                   <h4><strong><font size ="6">Chat With Other beeline Users Online Now!</font></strong>
+                   <h4><strong><font size ="6">Chat With Other beeline Users Online Now</font></strong>
                     </h4>
                    <div id='messagesDiv'></div>
 						<form>
@@ -268,11 +273,7 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="js/agency.js"></script>
-
-            <div>
-                "Hello"
-            </div>
-        </section>
+                        
     </body>
 
     </html>
