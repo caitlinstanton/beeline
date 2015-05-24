@@ -1,15 +1,3 @@
-    <!--        google.maps.event.addListener(map, 'click', function( event ){
-      alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
-    });
-
-        var latlng2 = new google.maps.LatLng(37.3316591,-122.0301778);
-        var myMarker2 = new google.maps.Marker({
-            position: latlng2,
-            map: map,
-            title:"Apple Computer"
-            });
-            -->
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -20,7 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+<<<<<<< HEAD
+		<script src="js/jquery.js"></script>
+		<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+		
+=======
 
+>>>>>>> 27e5b457682b430e5b25506cbbf94c6c7b75c659
         <title>beeline</title>
 
         <!-- Bootstrap Core CSS -->
@@ -43,56 +37,6 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <style type="text/css">
-          #map-canvas { height: 87%; margin: 500; padding: 20;}
-        </style>
-        <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsv_QlnjzCvo8jGrbGwhXHvPyvZ-AEn7A">
-
-    
-          google.maps.event.addDomListener(window, 'load', initialize);
-
-
-            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    
-        $(function () {
-
-        //setup these vars only once since they are static
-        var $myIFRAME   = $(".iframe-class"),//unless this collection of elements changes over time, you only need to select them once
-            ogWidth     = 700,
-            ogHeight    = 600,
-            ogRatio     = ogWidth / ogHeight,
-            windowWidth = 0,//store windowWidth here, this is just a different way to store this data
-            resizeTimer = null;
-
-        function setIFrameSize() {
-            if (windowWidth < 480) {
-
-                var parentDivWidth = $myIFRAME.parent().width(),//be aware this will still only get the height of the first element in this set of elements, you'll have to loop over them if you want to support more than one iframe on a page
-                    newHeight      = (parentDivWidth / ogRatio);
-
-                $myIFRAME.addClass("iframe-class-resize").css({ height : newHeight, width : parentDivWidth });
-            } else {
-                $myIFRAME.removeClass("iframe-class-resize").css({ width : '', height : '' });
-            }
-        }
-
-        $(window).resize(function () {
-
-            //only run this once per resize event, if a user drags the window to a different size, this will wait until they finish, then run the resize function
-            //this way you don't blow up someone's browser with your resize function running hundreds of times a second
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function () {
-                //make sure to update windowWidth before calling resize function
-                windowWidth = $(window).width();
-
-                setIFrameSize();
-
-            }, 75);
-
-        }).trigger("click");//run this once initially, just a different way to initialize
-    });
-        </script>
 
     </head>
 
@@ -119,13 +63,16 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Services</a>
+                            <a class="page-scroll" href="#services">About</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#portfolio">Map</a>
+                            <a class="page-scroll" href="#portfolio">Events</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#contact">Submit an Event</a>
+                            <a class="page-scroll" href="#contact">Submit</a>
+                        </li>
+						<li>
+                            <a class="page-scroll" href="#contact">Chat</a>
                         </li>
                     </ul>
                 </div>
@@ -138,8 +85,8 @@
         <header>
             <div class="container">
                 <div class="intro-text">
-                    <div class="intro-lead-in">Welcome To Our Studio!</div>
-                    <div class="intro-heading">It's Nice To Meet You</div>
+                    <div class="intro-lead-in">Welcome To beeline!</div>
+                    <div class="intro-heading">We're here to help YOU</div>
                     <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
                 </div>
             </div>
@@ -148,94 +95,72 @@
         <!-- Services Section -->
         <section id="services">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Services</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    
+                   <h4><strong><font size ="6">Check out what's happening</font></strong>
+                    </h4>
+                   <div id='eventsDiv'></div>
+                            <input style="background-color:#ffffff;" type='text' id='eventName' placeholder='Name'>
+                            <input type='text' id='eventInfo' placeholder='Message'>
+							<input type="button" value="ENTER" data-theme="b" ID="eventsubmit">
+                            <script>
+                                var myDataRef2 = new Firebase('https://beeline15.firebaseio.com/');
+                                document.getElementById('eventsubmit').onclick = function() {
+                                        var ename = $('#eventName').val();
+                                        var etext = $('#eventInfo').val();
+                                        myDataRef2.push({name: ename, text: etext});
+                                        $('#eventInfo').val('');
+                                };
+
+                                myDataRef2.on('child_added', function(snapshot) {
+                                    var events = snapshot.val();
+                                    displayChatMessage2(events.name, events.text);
+                                });
+                                function displayChatMessage2(name, text) {
+                                    $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#eventsDiv'));
+                                    $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;
+                                };
+                            </script>     
+   
+					</div>
+				</div>
+			</div>
         </section>
 
-        <!-- Portfolio Grid Section -->
-        <section id="portfolio" class="bg-light-gray">
-            <div id="contentframe" style="position:relative; left: 200px;">
-                
-            </div>
-        </section>
-
-
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Add an event</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <form name="sentMessage" id="contactForm" novalidate>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Event name" id="eventName" required data-validation-required-message="Please enter event name.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Event location" id="eventLocation" required data-validation-required-message="Please enter event location.">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Contact email" id="email">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <textarea class="form-control" placeholder="Event description" id="description" required data-validation-required-message="Please enter event description."></textarea>
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-lg-12 text-center">
-                                    <div id="success"></div>
-                                    <button type="submit" class="btn btn-xl">Add event</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+ 
         <footer>
+<<<<<<< HEAD
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    
+                   <h4><strong><font size ="6">Chat With Other Biz-Quick Users Online Now!</font></strong>
+                    </h4>
+                   <div id='messagesDiv'></div>
+                            <input style="background-color:#ffffff;" type='text' id='nameInput' placeholder='Name'>
+                            <input type='text' id='messageInput' placeholder='Message'>
+							<input type="button" value="ENTER" data-theme="b" ID="submit">
+                            <script>
+                                var myDataRef = new Firebase('https://codeday15.firebaseio.com/');
+                                document.getElementById('submit').onclick = function() {
+                                        var name = $('#nameInput').val();
+                                        var text = $('#messageInput').val();
+                                        myDataRef.push({name: name, text: text});
+                                        $('#messageInput').val('');
+                                };
+                                myDataRef.on('child_added', function(snapshot) {
+                                    var message = snapshot.val();
+                                    displayChatMessage(message.name, message.text);
+                                });
+                                function displayChatMessage(name, text) {
+                                    $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+                                    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+                                };
+                            </script>     
+   
+=======
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -259,9 +184,12 @@
                             </li>
                         </ul>
                     </div>
+>>>>>>> 27e5b457682b430e5b25506cbbf94c6c7b75c659
                 </div>
             </div>
-        </footer>
+        </div>
+        
+    </footer> 
 
         <!-- jQuery -->
         <script src="js/jquery.js"></script>
