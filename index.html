@@ -104,7 +104,7 @@
                             <a class="page-scroll" href="#submit">Submit</a>
                         </li>
 						<li>
-                            <a class="page-scroll" href="#contact">Chat</a>
+                            <a class="page-scroll" href="#portfolio">Chat</a>
                         </li>
                     </ul>
                 </div>
@@ -133,7 +133,8 @@
                    <h4><strong><font size ="6">Check out what's happening</font></strong>
                     </h4>
                    <div id='eventsDiv'></div>
-                        <div style="background-image: url('honeycomb2.jpg');opacity:0.8;color:black; margin-left:-300px; margin-right:-300px; margin-bottom: -175px; margin-top:50px;">
+                    <a href="#submit" class="page-scroll btn btn-xl" style="margin-top:50px;">Submit an event</a>
+                        <div style="background-image: url('honeycomb2.jpg');opacity:0.8;color:black; margin-left:-300px; margin-right:-300px; margin-bottom: -175px; margin-top:100px">
                         <section id ="submit">
 						<form>
 							<div>
@@ -154,11 +155,15 @@
 									<span>Website<input type='url' id='eventSite'>
 								</label>
 								<label>
-									<span><input type='button' value="ENTER" ID="eventsubmit" align="center">
+                                    
+									<span><input type='button' value="SUBMIT" ID="eventsubmit" align="center" style="margin-top:20px; height:40px; width: 150px; border-radius:5px; font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:18px;">
 								</label>
 						</form>
+            
                             </section>
+                                    <a href="#portfolio" class="page-scroll btn btn-xl" style="margin-top:-400px;">Chat about this</a>
                                     </div>
+                                    <ul id="eventList">
                             <script>
                                 var myDataRef2 = new Firebase('https://beeline15.firebaseio.com/');
                                 document.getElementById('eventsubmit').onclick = function() {
@@ -180,17 +185,29 @@
                                     displayChatMessage2(events.name, events.date);
                                 });
                                 function displayChatMessage2(name, date) {
-                                    $('<div/>').text(date).prepend($('<em/>').text(name+': ')).appendTo($('#eventsDiv'));
-                                    $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;
+                                    $('<\a><\li><\div>').text(date).prepend($('<li style="list-style-type:none; color:black"><a>').text(name+': ')).appendTo($('#eventsDiv'));
+                                    $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;            
                                 };
+                                $(function(){
+                                    $('#eventsList li a').each(function(){
+                                    $(this).click(function(){
+                                    $(this).siblings('#descrip li div').slideToggle(300); 
+                                    
+                                    });        
+                                    });                
+
+                                });
                             </script>  
+                            </ul>
 					</div>
+                                    
 				</div>
 			</div>
         </section> 
+                            
         <footer>
-    <section id="contact">
-        </section>
+
+        <section id="portfolio" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
@@ -206,7 +223,7 @@
 								<span><input type='text' id='messageInput' placeholder='Message'>
 							</label>
 							<label>
-								<span><input type="button" value="ENTER" data-theme="b" ID="submit">
+								<span><input type="button" value="ENTER" style="margin-top:20px; height:40px; width: 150px; border-radius:5px; font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif; font-size:16px;" data-theme="b" ID="submit">
 							</label>
 						</form>
                             <script>
@@ -227,7 +244,7 @@
                                 };
                             </script>     
    
-            <div class="container">
+            <div class="container" style="margin-top:-300px;">
                 <div class="row">
                     <div class="col-md-4">
                         <span class="copyright">Copyright &copy; beeline 2015</span>
@@ -253,7 +270,9 @@
                 </div>
             </div>
         </div>
-        
+        </section>
+        <section id="contact" style="margin-bottom:-100px;">
+        </section>
     </footer> 
 
         <!-- jQuery -->
