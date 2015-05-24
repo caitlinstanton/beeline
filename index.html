@@ -263,10 +263,10 @@ beeline
                                     displayChatMessage2(events.name2, events.date, events.location, events.info, events.site);
                                 });
                                 function displayChatMessage2(name2, date, location, info, site) {
-									$('<div/>').text(date).prepend($('<em/>').text(name2+': ')).appendTo($('#eventsDiv'));
+								$('<div id="hello">').('<div/>').text(date).prepend($('<em/>').text(name2+': ')).appendTo($('#eventsDiv'));
 									$('<div/>').text(info).appendTo($('#eventsDiv'));
 									$('<div/>').text(site).appendTo($('#eventsDiv'));
-									$('<div/>').text("---------").appendTo($('#eventsDiv'));
+									$('<div/>').text("---------").('</div>').appendTo($('#eventsDiv'));
                                     $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;            
                                 };
                              
