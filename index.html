@@ -98,23 +98,33 @@
                     </h4>
                    <div id='eventsDiv'></div>
                             <input style="background-color:#ffffff;" type='text' id='eventName' placeholder='Name'>
-                            <input type='text' id='eventInfo' placeholder='Message'>
+                            <input type='text' id='eventDate' placeholder='Date'>
+							<input type='text' id='eventLocation' placeholder='Location'>
+							<input type='text' id='eventInfo' placeholder='Description'>
+							<input type='text' id='eventSite' placeholder='Website'>
 							<input type="button" value="ENTER" data-theme="b" ID="eventsubmit">
                             <script>
                                 var myDataRef2 = new Firebase('https://beeline15.firebaseio.com/');
                                 document.getElementById('eventsubmit').onclick = function() {
                                         var ename = $('#eventName').val();
-                                        var etext = $('#eventInfo').val();
-                                        myDataRef2.push({name: ename, text: etext});
-                                        $('#eventInfo').val('');
+                                        var edate = $('#eventDate').val();
+										var elocal = $('#eventLocation').val();
+										var einfo = $('#eventInfo').val();
+										var esite = $('#eventSite').val();
+                                        myDataRef2.push({name: ename, date: edate, location: elocal, info: einfo, site: esite});
+										$('#eventName').val('');
+                                        $('#eventDate').val('');
+										$('#eventLocation').val('');
+										$('#eventInfo').val('');
+										$('#eventSite').val('');
                                 };
 
                                 myDataRef2.on('child_added', function(snapshot) {
                                     var events = snapshot.val();
-                                    displayChatMessage2(events.name, events.text);
+                                    displayChatMessage2(events.name, events.date);
                                 });
-                                function displayChatMessage2(name, text) {
-                                    $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#eventsDiv'));
+                                function displayChatMessage2(name, date) {
+                                    $('<div/>').text(date).prepend($('<em/>').text(name+': ')).appendTo($('#eventsDiv'));
                                     $('#eventsDiv')[0].scrollTop = $('#eventsDiv')[0].scrollHeight;
                                 };
                             </script>     
